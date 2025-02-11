@@ -2,12 +2,12 @@ name: ci
 
 on:
   push:
-    branches: 
+    branches:
       - main
   pull_request:
 
 jobs:
-  slint:
+  eslint:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
@@ -15,7 +15,7 @@ jobs:
       run: npm install
     - name: Run ESLint
       run: npm run lint
-  cypress-test-desktop:
+  cypress-tests-desktop:
     needs: eslint
     runs-on: ubuntu-22.04
     steps:
@@ -23,14 +23,14 @@ jobs:
         uses: actions/checkout@v3
       - name: Run end-to-end tests on desktop viewport 🧪
         uses: cypress-io/github-action@v5
-        env: 
+        env:
           CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
           CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
           CYPRESS_MAILOSAUR_SERVER_ID: ${{ secrets.CYPRESS_MAILOSAUR_SERVER_ID }}
           CYPRESS_MAILOSAUR_API_KEY: ${{ secrets.CYPRESS_MAILOSAUR_API_KEY }}
         with:
           command: npm test
-  cypress-test-tablet:
+  cypress-tests-tablet:
     needs: eslint
     runs-on: ubuntu-22.04
     steps:
