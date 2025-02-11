@@ -1,33 +1,45 @@
-# Testes _end-to-end_ com Cypress
+# Testes End-to-end com Cypress
 
-👋 Seja bem vindo(a)!
+Projeto de exemplo para demonstrar testes end-to-end (e2e) escritos com [Cypress](https://cypress.io) e executados no GitHub Actions.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai adorar este curso. ❤️
+## Pré-requisitos
 
-## O que você vai aprender
+Para clonar e executar este projeto, você precisará de:
 
-Durante o curso de testes _end-to-end_ (e2e) com Cypress, você vai aprender:
+- [git](https://git-scm.com/downloads) (usei a versão `2.34.1` ao escrever este documento)
+- [Node.js](https://nodejs.org/en/) (usei a versão `v18.15.0` ao escrever este documento)
+- npm (usei a versão `9.5.0` ao escrever este documento)
 
-- Como fazer o _setup_ de um projeto Cypress
-- Como analisar estaticamente o código de teste para garantir o uso de convenções definidas pela comunidade
-- Como criar testes e2e para diferentes funcionalidades de uma aplicação web, tais como _Sign up_, _Login_, CRUD, etc.
-- Como testar recebimento de _e-mails_
-- Como testar _upload_ de arquivos
-- Como interagir com componentes renderizados dentro de iFrames
-- Como interceptar requisições para tornar os testes mais robustos
-- Como proteger dados sensíveis
-- Como testar a responsividade da aplicação simulando seu uso em um dispositivo móvel
-- Como armazenar a sessão do usuário no cache para otimizar o processo de autenticação
-- Como criar e documentar comandos customizados
-- Como configurar um _workflow_ de integração contínua com múltiplas fases e paralelização
-- Como integrar os testes com o Cypress Cloud
-- Como categorizar os testes e executá-los por suas _tags_
-- Como documentar um projeto de testes e2e
+**Observação:** Ao instalar o Node.js, o npm é instalado automaticamente. 🚀
 
-## Vamos começar?
+## Instalação
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+Para instalar as dependências de desenvolvimento, execute `npm install` (ou `npm i` para abreviar).
 
-___
+## Configuração das variáveis de ambiente
 
-Um curso da [**Escola Talking About Testing**](https://udemy.com/user/walmyr).
+Antes de executar os testes, algumas variáveis de ambiente precisam ser configuradas.
+
+Faça uma cópia do arquivo [`cypress.env.example.json`](./cypress.env.example.json) e renomeie para `cypress.env.json`, em seguida, defina os valores apropriados para todas as variáveis.
+
+**Observação:** O arquivo `cypress.env.json` não é rastreado pelo git, pois está listado no arquivo `.gitignore`.
+
+## Executando os testes
+
+Neste projeto, você pode executar os testes nos modos interativo e headless, tanto em viewports de desktop quanto de tablet.
+
+### Modo headless
+
+Execute `npm test` (ou `npm t` para abreviar) para rodar todos os testes no modo headless usando uma viewport de desktop.
+
+Execute `npm run test:tablet` para rodar os testes apropriados no modo headless usando uma viewport de tablet.
+
+### Modo interativo
+
+Execute `npm run cy:open` para abrir o __Cypress App__ e rodar os testes no modo interativo usando uma viewport de desktop.
+
+Execute `npm run cy:open:tablet` para abrir o __Cypress App__ e rodar os testes no modo interativo usando uma viewport de tablet.
+
+---
+
+Feito com ❤️ por [seu-nome-aqui](https://www.linkedin.com/in/maxwell-kimura/).
